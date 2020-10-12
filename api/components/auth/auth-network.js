@@ -57,9 +57,7 @@ async function sign_in(req, res, next) {
               next(boom.unauthorized());
             }
 
-            const { _id, name, email } = user;
-            console.log("USER ID SEARCH");
-            console.log(user);
+            const { _id, name, email } = user;            
 
             const payload = {
               sub: _id,
@@ -166,8 +164,6 @@ router.post("/sign-provider", async function (req, res, next) {
   const token = jwt.sign(payload, config.api.authJwtSecret, {
     expiresIn: "15m",
   });
-
-  console.log(token);
 
   const response = {
     ...payload,

@@ -8,10 +8,10 @@ passport.use(
   new FacebookStrategy(
     {
       // clientID: config.facebookClientId,
-      clientID: "371953133939916",
+      clientID:config.api.facebookClientId,
       // clientSecret: config.facebookClientSecret,
-      clientSecret: "a0cf2b722641f7b4ceb21f39b760036f",
-      callbackURL: "http://localhost:8080/api/auth/facebook/callback",
+      clientSecret: config.api.facebookClientSecret,
+      callbackURL: `${config.api.apiUrl}/api/auth/facebook/callback`,
       profileFields: ["id", "displayName", "photos", "email"],
     },
     async function (accessToken, refreshToken, profile, done) {
